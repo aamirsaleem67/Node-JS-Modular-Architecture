@@ -9,7 +9,10 @@
     "lint": "npm run lint:js ",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
     "lint:js": "npm run lint:eslint src/",
-    "lint:fix": "npm run lint:js -- -- --fix"
+    "lint:fix": "npm run lint:js -- -- --fix",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:generate": "NODE_ENV=dev npm run typeorm migration:generate -- -n",
+    "migration": "npm run typeorm -- migration:run"
   },
   "author": "Aamir Saleem <aamirsaleem167@gmail.com>",
   "license": "MIT",
@@ -24,15 +27,18 @@
     "prettier": "^2.1.1",
     "ts-lint": "^4.5.1",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "tsconfig-paths": "^3.9.0"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
+    "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "typedi": "^0.8.0",
+    "typeorm": "^0.2.26",
     "winston": "^3.3.3"
   }
 }

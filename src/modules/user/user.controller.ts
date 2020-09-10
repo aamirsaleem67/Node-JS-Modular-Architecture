@@ -6,9 +6,9 @@ import { Container } from 'typedi';
 export default (app: Router) => {
   app.use('/users', route);
 
-  route.get('/me', (req, res) => {
+  route.get('/me', async (req, res) => {
     const userService = Container.get(UserService);
-    const user = userService.getUser();
+    const user = await userService.getUser();
     return res.json(user).status(200);
   });
 };
