@@ -1,12 +1,14 @@
+import { USER_REPOSITORY } from './user.providers';
 import { User } from './entities/user.entity';
-import { Service } from 'typedi';
-import { getRepository } from 'typeorm';
+import { Service, Inject } from 'typedi';
+import { Repository } from 'typeorm';
 
 @Service()
 export default class UserService {
-  private userRepository = getRepository(User);
-
-  constructor() {}
+  constructor(
+    @Inject(USER_REPOSITORY)
+    private userRepository: Repository<User>,
+  ) {}
 
   async getUser() {
     return await this.userRepository.find();
