@@ -15,7 +15,8 @@
     "allowJs": false,
     "noEmit": false,
     "esModuleInterop": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "strict": false
   },
   "paths": {
     "*": ["node_modules/*"]
